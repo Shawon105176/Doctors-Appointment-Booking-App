@@ -14,30 +14,32 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
-  
-  final List<OnboardingData> _pages = [
+    final List<OnboardingData> _pages = [
     OnboardingData(
       title: 'Find Trusted Doctors',
       description: 'Connect with certified healthcare professionals in your area and book appointments easily.',
       icon: Icons.search,
-      color: AppTheme.primaryColor,
+      color: const Color(0xFF667eea), // Use direct color for testing
     ),
     OnboardingData(
       title: 'Easy Appointment Booking',
       description: 'Schedule appointments at your convenience with our simple and intuitive booking system.',
       icon: Icons.calendar_today,
-      color: AppTheme.accentColor,
+      color: const Color(0xFF4FD1C7), // Use direct color for testing
     ),
     OnboardingData(
       title: 'Manage Your Health',
       description: 'Keep track of your appointments, medical history, and get personalized health tips.',
       icon: Icons.health_and_safety,
-      color: AppTheme.successColor,
+      color: const Color(0xFF38A169), // Use direct color for testing
     ),
   ];
-
   @override
   Widget build(BuildContext context) {
+    print('DEBUG: OnboardingScreen build called');
+    print('DEBUG: Pages count: ${_pages.length}');
+    print('DEBUG: Current page: $_currentPage');
+    
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -153,8 +155,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
-
   Widget _buildPage(OnboardingData data) {
+    print('DEBUG: Building page for: ${data.title}');
+    
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32),
       child: Column(
